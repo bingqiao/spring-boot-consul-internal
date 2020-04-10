@@ -1,0 +1,15 @@
+version: '3'
+services:
+  consul-internal:
+    image: consul-internal
+    container_name: consul-internal
+    environment:
+      - SPRING_CLOUD_CONSUL_HOST=host.docker.internal
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      #- SPRING_CLOUD_CONSUL_DISCOVERY_PREFER-IP-ADDRESS=true
+      #- SPRING_CLOUD_CONSUL_DISCOVERY_IP-ADDRESS=127.0.0.1
+      - SPRING_CLOUD_CONSUL_DISCOVERY_HOSTNAME=host.docker.internal
+      - SPRING_CLOUD_CONSUL_DISCOVERY_PORT=8091
+      - SPRING_CLOUD_CONSUL_DISCOVERY_HEALTH-CHECK-URL=http://localhost:8091/api/v1/message/ping
+    ports:
+      - 8091:8081

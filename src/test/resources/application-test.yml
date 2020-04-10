@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /api/v1
+
+spring:
+  cloud:
+    bus:
+      enabled: false
+    consul:
+      enabled: false
+      discovery:
+        enabled: false
+      config:
+        enabled: false
